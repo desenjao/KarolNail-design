@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Designer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+</head>
+
+<body>
+
+
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Suas unhas impecáveis, do jeito que você sempre sonhou!</h1>
+            <p>Transforme suas mãos com nossos serviços profissionais de nail design.</p>
+            <br>
+            <br>
+            <a href="#contact" class="cta-button">Agende Agora</a>
+            <a href="#portfolio" class="cta-port">Portifólio</a>
+
+        </section>
+
+        <section id="services">
+            <h2>Nossos Serviços</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Alongamento com Tips e Gel</h3>
+                    <p>Perfeito para quem deseja unhas mais longas e resistentes com um visual natural e sofisticado.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h3>Banho de Gel</h3>
+                    <p>Fortaleça suas unhas naturais, evite descamação e garanta um brilho incrível sem precisar de
+                        alongamento.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Esmaltação em Gel</h3>
+                    <p>Cores vibrantes e brilho impecável por semanas! Adeus esmalte descascado, olá unhas perfeitas!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfólio</h2>
+           
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/img1.jpg" alt="Nail Design 1"></div>
+                    <div class="swiper-slide"><img src="img/img2.jpg" alt="Nail Design 2"></div>
+                    <div class="swiper-slide"><img src="img/img3.jpg" alt="Nail Design 3"></div>
+                    <div class="swiper-slide"><img src="img/img4.webp" alt="Nail Design 4"></div>
+                    <div class="swiper-slide"><img src="img/img5.webp" alt="Nail Design 5"></div>
+                    <div class="swiper-slide"><img
+                            src="https://i.pinimg.com/474x/9b/32/34/9b323446be8355c452c4f6a9fb53c92a.jpg"
+                            alt="Nail Design 6"></div>
+                </div>
+                <!-- Botões de navegação -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Paginação -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <section id="benefits">
+                <h2>Por que escolher nossos serviços?</h2>
+                <ul>
+                    <li>✅ Atendimento personalizado</li>
+                    <li>✅ Produtos de alta qualidade</li>
+                    <li>✅ Horários flexíveis</li>
+                </ul>
+            </section>
+
+            <section id="cta">
+                <h2>O que você está esperando?</h2>
+                <p>Agende agora e tenha unhas lindas, fortes e impecáveis! Vagas limitadas!</p>
+                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F" class="cta-button">Reserve seu horário</a>
+            </section>
+
+            <section id="contact">
+                <h2>Entre em Contato</h2>
+                <p>Reserve seu horário pelo WhatsApp e transforme suas unhas hoje mesmo! 💖</p>
+                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F" class="whatsapp-button">Agendar pelo WhatsApp</a>
+            </section>
+    </main>
+    <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F" class="whatsapp-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+    </a>
+
+    <footer>
+        <p>&copy; 2025 Nail Designer Portfolio. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true, // Loop infinito
+            spaceBetween: 20, // Espaçamento entre imagens
+            slidesPerView: 1, // Quantas imagens aparecem ao mesmo tempo
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>
