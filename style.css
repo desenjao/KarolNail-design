@@ -107,18 +107,72 @@ h3{
     background-image: url('img/img2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     background-color: var(--secondary-color);
     text-align: center;
     padding: 5rem 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Aumentei o tamanho */
     font-weight: bold;
     color: aliceblue;
+    margin-bottom: 1rem;
 }
+
+.hero p {
+    font-size: 1em; /* Aumentei o tamanho */
+    margin-bottom: 2rem;
+}
+
+.hero .btn-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.hero .cta-button, .hero .cta-port {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.2rem 2.5rem; /* Aumentei o tamanho */
+    border: none;
+    border-radius: 50px; /* Ajuste para manter o arredondamento */
+    font-size: 1.5rem; /* Aumentei o tamanho */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    min-width: 180px;
+    text-align: center;
+}
+
+.hero .cta-button:hover, .hero .cta-port:hover {
+    background: darken(var(--primary-color), 10%);
+    transform: scale(1.05);
+}
+
+.hero .cta-port {
+    background:white;
+}
+
+.hero .cta-button:hover, .hero .cta-port:hover {
+    background: darken(var(--primary-color), 10%);
+    transform: scale(1.05);
+}
+
+.hero .cta-port {
+    background: var(--secondary-color);
+}
+
 
 .cta-button, .whatsapp-button {
     display: inline-block;
@@ -150,10 +204,10 @@ h3{
 
 .service-grid, .portfolio-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adiciona colunas dinâmicas */
     gap: 1.5rem;
     margin-top: 2rem;
-}
+} 
 
 .service-item {
     background: white;
@@ -169,6 +223,8 @@ h3{
 
 .portfolio-grid img {
     width: 100%;
+    height: 300px; /* Ajuste a altura conforme necessário */
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -177,6 +233,46 @@ h3{
 .portfolio-grid img:hover {
     transform: scale(1.02);
 }
+.swiper-slide img {
+    width: 100%;
+    height: 700px; /* Tamanho fixo para evitar cortes */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+/* Modal para exibir a imagem expandida */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* Botão para fechar a imagem */
+.image-modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
 
 #benefits ul {
     list-style: none;
@@ -226,14 +322,102 @@ footer {
     z-index: 1000;
 }
 
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 999;
+}
+
 .whatsapp-float img {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+    width: 80%;
+    height: 80%;
+    padding: 5px;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
+}
+
+/* Estilização do modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Caixa do modal */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagem da Karol */
+.modal-content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Botões */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+/* Botão do WhatsApp */
+#goToWhatsApp {
+    background: #25D366;
+    color: white;
+}
+
+#goToWhatsApp:hover {
+    background: #1ebe5d;
+}
+
+/* Botão de Cancelar */
+#cancelModal {
+    background: #ccc;
+}
+
+#cancelModal:hover {
+    background: #b3b3b3;
 }
 
 
@@ -247,8 +431,42 @@ footer {
         margin: 0.5rem 0;
     }
 
+    header {
+        padding: 0.5rem;
+    }
+
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem; /* Reduzido o tamanho da fonte */
+    }
+
+    .hero p {
+        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+    }
+
+    .hero .btn-container {
+        flex-direction: column; /* Botões em coluna */
+        gap: 1rem;
+    }
+
+    .hero .cta-button, .hero .cta-port {
+        padding: 1rem 2rem; /* Reduzido o padding */
+        font-size: 1rem; /* Reduzido o tamanho da fonte */
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    .service-grid, .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas mais estreitas */
+    }
+
+    .swiper {
+        height: 300px; /* Reduzido a altura do Swiper */
+    }
+
+    .swiper-slide img {
+        height: 300px; /* Reduzido a altura da imagem */
     }
 
     .cta-button, .whatsapp-button {
@@ -256,7 +474,16 @@ footer {
         padding: 0.7rem 1.2rem;
     }
 
-    section {
-        padding: 2.5rem 1rem;
+    .modal-content {
+        width: 90%; /* Modal mais estreito */
+    }
+
+    .modal-content img {
+        width: 80px; /* Imagem menor */
+        height: 80px;
+    }
+
+    .modal-buttons button {
+        font-size: 14px; /* Fonte menor para os botões */
     }
 }

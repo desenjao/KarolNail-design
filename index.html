@@ -22,6 +22,7 @@
             <br>
             <br>
             <a href="#contact" class="cta-button">Agende Agora</a>
+            <br>
             <a href="#portfolio" class="cta-port">Portifólio</a>
 
         </section>
@@ -49,17 +50,19 @@
 
         <section id="portfolio">
             <h2>Portfólio</h2>
-           
+
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="img/img1.jpg" alt="Nail Design 1"></div>
                     <div class="swiper-slide"><img src="img/img2.jpg" alt="Nail Design 2"></div>
                     <div class="swiper-slide"><img src="img/img3.jpg" alt="Nail Design 3"></div>
-                    <div class="swiper-slide"><img src="img/img4.webp" alt="Nail Design 4"></div>
-                    <div class="swiper-slide"><img src="img/img5.webp" alt="Nail Design 5"></div>
-                    <div class="swiper-slide"><img
-                            src="https://i.pinimg.com/474x/9b/32/34/9b323446be8355c452c4f6a9fb53c92a.jpg"
-                            alt="Nail Design 6"></div>
+                    <div class="swiper-slide"><img src="img/img4.jpeg" alt="Nail Design 4"></div>
+                    <div class="swiper-slide"><img src="img/img5.jpeg" alt="Nail Design 5"></div>
+                    <div class="swiper-slide"><img src="img/img7.jpeg" alt="Nail Design 6"></div>
+                    <div class="swiper-slide"><img src="img/img8.jpeg" alt="Nail Design 7"></div>
+                    <div class="swiper-slide"><img src="img/img9.jpeg" alt="Nail Design 8"></div>
+
+
                 </div>
                 <!-- Botões de navegação -->
                 <div class="swiper-button-next"></div>
@@ -80,16 +83,33 @@
             <section id="cta">
                 <h2>O que você está esperando?</h2>
                 <p>Agende agora e tenha unhas lindas, fortes e impecáveis! Vagas limitadas!</p>
-                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F" class="cta-button">Reserve seu horário</a>
+                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F"
+                    class="cta-button">Reserve seu horário</a>
             </section>
 
             <section id="contact">
                 <h2>Entre em Contato</h2>
                 <p>Reserve seu horário pelo WhatsApp e transforme suas unhas hoje mesmo! 💖</p>
-                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F" class="whatsapp-button">Agendar pelo WhatsApp</a>
+                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F"
+                    class="whatsapp-button">Agendar pelo WhatsApp</a>
             </section>
+            <!-- Modal -->
+            <div id="whatsappModal" class="modal">
+                <div class="modal-content">
+                    <img src="img/perfil.jpg" alt="Karol - Nail Designer">
+                    <h3>Agende com a Karol 💅</h3>
+                    <p>Karol é especialista em Nail Design, com técnicas inovadoras e atendimento personalizado. Reserve
+                        seu horário para ter unhas incríveis!</p>
+                    <div class="modal-buttons">
+                        <button id="goToWhatsApp">Ir para o WhatsApp</button>
+                        <button id="cancelModal">Ver mais</button>
+                    </div>
+                </div>
+            </div>
+
     </main>
-    <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F" class="whatsapp-float" target="_blank">
+    <a href=""
+        class="whatsapp-float" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
     </a>
 
@@ -112,6 +132,68 @@
                 clickable: true,
             },
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Criar elementos para o modal
+            let modal = document.createElement("div");
+            modal.className = "image-modal";
+            modal.innerHTML = `
+        <span class="close-btn">&times;</span>
+        <img src="" alt="Imagem expandida">
+    `;
+            document.body.appendChild(modal);
+
+            // Selecionando os elementos
+            let modalImg = modal.querySelector("img");
+            let closeButton = modal.querySelector(".close-btn");
+
+            // Adiciona evento de clique às imagens do portfólio
+            document.querySelectorAll(".swiper-slide img").forEach(img => {
+                img.addEventListener("click", function () {
+                    modal.style.display = "flex";
+                    modalImg.src = this.src;
+                });
+            });
+
+            // Fecha o modal ao clicar no botão de fechar
+            closeButton.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            // Fecha o modal ao clicar fora da imagem
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+ // Modal WhatsApp
+ const whatsappButton = document.querySelector(".whatsapp-float");
+    const whatsappModal = document.getElementById("whatsappModal");
+    const cancelModal = document.getElementById("cancelModal");
+    const goToWhatsApp = document.getElementById("goToWhatsApp");
+
+    if (whatsappButton && whatsappModal && cancelModal && goToWhatsApp) {
+        whatsappButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            whatsappModal.style.display = "flex";
+        });
+
+        cancelModal.addEventListener("click", function () {
+            whatsappModal.style.display = "none";
+        });
+
+        goToWhatsApp.addEventListener("click", function () {
+            window.location.href = "https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F";
+        });
+
+        whatsappModal.addEventListener("click", function (event) {
+            if (event.target === whatsappModal) {
+                whatsappModal.style.display = "none";
+            }
+        });
+    }
+
+       
     </script>
 </body>
 
