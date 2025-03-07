@@ -83,15 +83,13 @@
             <section id="cta">
                 <h2>O que você está esperando?</h2>
                 <p>Agende agora e tenha unhas lindas, fortes e impecáveis! Vagas limitadas!</p>
-                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F"
-                    class="cta-button">Reserve seu horário</a>
+                <a href="#" class="cta-button open-modal">Reserve seu horário</a>
             </section>
 
             <section id="contact">
                 <h2>Entre em Contato</h2>
                 <p>Reserve seu horário pelo WhatsApp e transforme suas unhas hoje mesmo! 💖</p>
-                <a href="https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F"
-                    class="whatsapp-button">Agendar pelo WhatsApp</a>
+                <a href="#" class="whatsapp-button open-modal">Agendar pelo WhatsApp</a>
             </section>
             <!-- Modal -->
             <div id="whatsappModal" class="modal">
@@ -108,8 +106,7 @@
             </div>
 
     </main>
-    <a href=""
-        class="whatsapp-float" target="_blank">
+    <a href="" class="whatsapp-float" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
     </a>
 
@@ -166,34 +163,65 @@
                 }
             });
         });
- // Modal WhatsApp
- const whatsappButton = document.querySelector(".whatsapp-float");
-    const whatsappModal = document.getElementById("whatsappModal");
-    const cancelModal = document.getElementById("cancelModal");
-    const goToWhatsApp = document.getElementById("goToWhatsApp");
+        document.addEventListener("DOMContentLoaded", function () {
+            // Selecionando os elementos
+            const whatsappButton = document.querySelector(".whatsapp-float");
+            const openModalButtons = document.querySelectorAll(".open-modal");
+            const whatsappModal = document.getElementById("whatsappModal");
+            const cancelModal = document.getElementById("cancelModal");
+            const goToWhatsApp = document.getElementById("goToWhatsApp");
 
-    if (whatsappButton && whatsappModal && cancelModal && goToWhatsApp) {
-        whatsappButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            whatsappModal.style.display = "flex";
-        });
+            // Verifica se os elementos existem
+            if (whatsappButton && whatsappModal && cancelModal && goToWhatsApp) {
+                // Exibe o modal ao clicar no botão do WhatsApp
+                whatsappButton.addEventListener("click", function (event) {
+                    event.preventDefault(); // Evita o comportamento padrão do link
+                    whatsappModal.style.display = "flex"; // Exibe o modal
+                });
+                function showModal() {
+                    whatsappModal.style.display = "flex";
+                }
 
-        cancelModal.addEventListener("click", function () {
-            whatsappModal.style.display = "none";
-        });
+                // Função para fechar o modal
+                function hideModal() {
+                    whatsappModal.style.display = "none";
+                }
 
-        goToWhatsApp.addEventListener("click", function () {
-            window.location.href = "https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F";
-        });
+                // Adiciona evento de clique ao botão flutuante do WhatsApp
+                if (whatsappButton) {
+                    whatsappButton.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        showModal();
+                    });
+                }
 
-        whatsappModal.addEventListener("click", function (event) {
-            if (event.target === whatsappModal) {
-                whatsappModal.style.display = "none";
+                // Adiciona evento de clique a todos os botões com a classe open-modal
+                openModalButtons.forEach(button => {
+                    button.addEventListener("click", function (event) {
+                        event.preventDefault(); // Evita o comportamento padrão do link
+                        showModal(); // Exibe o modal
+                    });
+                });
+
+                // Fecha o modal ao clicar no botão "Cancelar"
+                cancelModal.addEventListener("click", function () {
+                    whatsappModal.style.display = "none"; // Oculta o modal
+                });
+
+                // Redireciona para o WhatsApp ao clicar no botão "Ir para o WhatsApp"
+                goToWhatsApp.addEventListener("click", function () {
+                    window.location.href = "https://wa.me/5511997360327?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Gostaria%20de%20saber%20como%20fa%C3%A7o%3F";
+                });
+
+                // Fecha o modal ao clicar fora da área do modal
+                whatsappModal.addEventListener("click", function (event) {
+                    if (event.target === whatsappModal) {
+                        whatsappModal.style.display = "none"; // Oculta o modal
+                    }
+                });
             }
         });
-    }
 
-       
     </script>
 </body>
 

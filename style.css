@@ -351,14 +351,13 @@ footer {
 
 /* Estilização do modal */
 .modal {
-    display: none;
+    display: none; /* Mantenha como none por padrão */
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.7);
-    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -413,7 +412,8 @@ footer {
 
 /* Botão de Cancelar */
 #cancelModal {
-    background: #ccc;
+    background: var(--primary-color);
+    color: white;
 }
 
 #cancelModal:hover {
@@ -433,6 +433,11 @@ footer {
 
     header {
         padding: 0.5rem;
+    }
+    .hero {
+        background-attachment: scroll; /* Remove o efeito de parallax em mobile */
+        height: auto; /* Ajusta a altura para o conteúdo */
+        padding: 2rem 1rem; /* Reduz o padding */
     }
 
     .hero h1 {
