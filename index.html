@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nail Designer Portfolio</title>
+     <!-- Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVP989Q3SH"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag() { dataLayer.push(arguments); }
+         gtag('js', new Date());
+         gtag('config', 'G-HVP989Q3SH');
+     </script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
@@ -13,24 +21,22 @@
 
 <body>
     <!-- Modal de Promoção -->
-    <div id="promoModal" class="modal">
-        <div class="modal-content">
-
-            <h3>🎉 Promoção Especial! 🎉</h3>
-            <p>Celebre o <strong>Dia das Mulheres</strong> conosco!</p>
-            <p style="background-color: #FF69B4; color: white; border-radius: 50px;">Alongamento com Tips e Gel por
-                apenas <strong>R$ 80</strong>!</p>
-            <p>Não perca essa oferta exclusiva!</p>
-            <div class="modal-buttons">
-                <button id="closePromoModal" class="cta-button open-modal" style="background-color: #1ebe5d ;">Agendar
-                    pelo WhatsApp</button>
-                <button id="closePromoModalf">Fechar</button>
-            </div>
+<div id="promoModal" class="modal">
+    <div class="modal-content">
+        
+        <h3>🎉 Promoção Especial! 🎉</h3>
+        <p>Celebre o <strong>Dia das Mulheres</strong> conosco!</p>
+        <p style="background-color: #FF69B4; color: white; border-radius: 50px;">Alongamento com Tips e Gel por apenas <strong>R$ 80</strong>!</p>
+        <p>Não perca essa oferta exclusiva!</p>
+        <div class="modal-buttons">
+            <button id="closePromoModal" class="cta-button open-modal" style="background-color: #1ebe5d ;" >Agendar pelo WhatsApp</button>
+            <button id="closePromoModalf">Fechar</button>
         </div>
     </div>
+</div>
 
 
-
+ 
     <main>
         <section id="home" class="hero">
             <h1>Suas unhas impecáveis, do jeito que você sempre sonhou!</h1>
@@ -134,10 +140,10 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        gtag('config', 'G-HVP989Q3SH');
+  gtag('config', 'G-HVP989Q3SH');
         var swiper = new Swiper(".mySwiper", {
             loop: true, // Loop infinito
             spaceBetween: 20, // Espaçamento entre imagens
@@ -244,47 +250,47 @@
             }
         });
         document.addEventListener("DOMContentLoaded", function () {
-            // Seleciona os elementos do modal de promoção
-            const promoModal = document.getElementById("promoModal");
-            const closePromoModal = document.getElementById("closePromoModal");
-            const closePromoModalf = document.getElementById("closePromoModalf");
+    // Seleciona os elementos do modal de promoção
+    const promoModal = document.getElementById("promoModal");
+    const closePromoModal = document.getElementById("closePromoModal");
+    const closePromoModalf = document.getElementById("closePromoModalf");
 
-            const closeBtn = promoModal.querySelector(".close-btn");
-            const goToWhatsAppPromo = document.getElementById("goToWhatsAppPromo");
+    const closeBtn = promoModal.querySelector(".close-btn");
+    const goToWhatsAppPromo = document.getElementById("goToWhatsAppPromo");
 
-            // Seleciona o modal de agendamento existente
-            const whatsappModal = document.getElementById("whatsappModal");
+    // Seleciona o modal de agendamento existente
+    const whatsappModal = document.getElementById("whatsappModal");
 
-            // Exibe o modal de promoção ao carregar a página
-            promoModal.style.display = "flex";
+    // Exibe o modal de promoção ao carregar a página
+    promoModal.style.display = "flex";
 
-            // Fecha o modal de promoção ao clicar no botão "Fechar"
-            closePromoModal.addEventListener("click", function () {
-                promoModal.style.display = "none";
-            });
-            closePromoModalf.addEventListener("click", function () {
-                promoModal.style.display = "none";
-            });
+    // Fecha o modal de promoção ao clicar no botão "Fechar"
+    closePromoModal.addEventListener("click", function () {
+        promoModal.style.display = "none";
+    });
+    closePromoModalf.addEventListener("click", function () {
+        promoModal.style.display = "none";
+    });
 
-            // Fecha o modal de promoção ao clicar no botão de fechar (×)
-            closeBtn.addEventListener("click", function () {
-                promoModal.style.display = "none";
-            });
+    // Fecha o modal de promoção ao clicar no botão de fechar (×)
+    closeBtn.addEventListener("click", function () {
+        promoModal.style.display = "none";
+    });
 
-            // Fecha o modal de promoção ao clicar fora da área do modal
-            window.addEventListener("click", function (event) {
-                if (event.target === promoModal) {
-                    promoModal.style.display = "none";
-                }
-            });
+    // Fecha o modal de promoção ao clicar fora da área do modal
+    window.addEventListener("click", function (event) {
+        if (event.target === promoModal) {
+            promoModal.style.display = "none";
+        }
+    });
 
-            // Abre o modal de agendamento ao clicar no botão do WhatsApp
-            goToWhatsAppPromo.addEventListener("click", function (event) {
-                event.preventDefault();
-                promoModal.style.display = "none"; // Fecha o modal de promoção
-                whatsappModal.style.display = "flex"; // Abre o modal de agendamento
-            });
-        });
+    // Abre o modal de agendamento ao clicar no botão do WhatsApp
+    goToWhatsAppPromo.addEventListener("click", function (event) {
+        event.preventDefault();
+        promoModal.style.display = "none"; // Fecha o modal de promoção
+        whatsappModal.style.display = "flex"; // Abre o modal de agendamento
+    });
+});
     </script>
 </body>
 
