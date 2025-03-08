@@ -12,7 +12,20 @@
 </head>
 
 <body>
-
+    <!-- Modal de Promoção -->
+<div id="promoModal" class="modal">
+    <div class="modal-content">
+        
+        <h3>🎉 Promoção Especial! 🎉</h3>
+        <p>Celebre o <strong>Dia das Mulheres</strong> conosco!</p>
+        <p>Alongamento com Tips e Gel por apenas <strong>R$ 80</strong>!</p>
+        <p>Não perca essa oferta exclusiva!</p>
+        <div class="modal-buttons">
+            <button id="closePromoModal" class="cta-button open-modal" style="background-color: #1ebe5d ;" >Agendar pelo WhatsApp</button>
+            <button id="closePromoModalf">Fechar</button>
+        </div>
+    </div>
+</div>
 
 
     <main>
@@ -221,7 +234,48 @@
                 });
             }
         });
+        document.addEventListener("DOMContentLoaded", function () {
+    // Seleciona os elementos do modal de promoção
+    const promoModal = document.getElementById("promoModal");
+    const closePromoModal = document.getElementById("closePromoModal");
+    const closePromoModalf = document.getElementById("closePromoModalf");
 
+    const closeBtn = promoModal.querySelector(".close-btn");
+    const goToWhatsAppPromo = document.getElementById("goToWhatsAppPromo");
+
+    // Seleciona o modal de agendamento existente
+    const whatsappModal = document.getElementById("whatsappModal");
+
+    // Exibe o modal de promoção ao carregar a página
+    promoModal.style.display = "flex";
+
+    // Fecha o modal de promoção ao clicar no botão "Fechar"
+    closePromoModal.addEventListener("click", function () {
+        promoModal.style.display = "none";
+    });
+    closePromoModalf.addEventListener("click", function () {
+        promoModal.style.display = "none";
+    });
+
+    // Fecha o modal de promoção ao clicar no botão de fechar (×)
+    closeBtn.addEventListener("click", function () {
+        promoModal.style.display = "none";
+    });
+
+    // Fecha o modal de promoção ao clicar fora da área do modal
+    window.addEventListener("click", function (event) {
+        if (event.target === promoModal) {
+            promoModal.style.display = "none";
+        }
+    });
+
+    // Abre o modal de agendamento ao clicar no botão do WhatsApp
+    goToWhatsAppPromo.addEventListener("click", function (event) {
+        event.preventDefault();
+        promoModal.style.display = "none"; // Fecha o modal de promoção
+        whatsappModal.style.display = "flex"; // Abre o modal de agendamento
+    });
+});
     </script>
 </body>
 
