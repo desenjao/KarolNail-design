@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruthie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruthie&family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ruthie&display=swap');
+
+:root {
+    --primary-color: #ff69b4;
+    --secondary-color: #f8bbd0;
+    --text-color: #333;
+    --background-color: #fff;
+    --accent-color: #ff4081;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Estilo do botão "Voltar" */
+.back-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Container do portfólio */
+.portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.portfolio-container h1 {
+    font-family: "Ruthie", serif;
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Grid de imagens */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo de cada item do portfólio */
+.portfolio-item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-item p {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-color);
+    font-family: "Playfair Display", serif;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .portfolio-container h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Alteração para exibir uma foto por vez em celulares */
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Uma coluna */
+    }
+
+    .portfolio-container h1 {
+        font-size: 2rem;
+    }
+
+    .portfolio-item img {
+        height: 300px; /* Ajuste a altura para melhor visualização */
+    }
+}
+
+/* Estilo da seção de chamada para ação */
+.cta-portfolio {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--secondary-color);
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.cta-portfolio h2 {
+    font-family: "Ruthie", serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.cta-portfolio p {
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Estilo do botão do WhatsApp */
+.whatsapp-button {
+    display: inline-block;
+    background-color: #25d366; /* Cor do WhatsApp */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e; /* Cor do WhatsApp mais escura */
+    transform: scale(1.05);
+}

@@ -23,8 +23,78 @@ html, body {
     width: 100%;
     overflow-x: hidden; /* Impede o overflow horizontal */
 }
+/* Animação de boas-vindas */
+#welcomeAnimation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 105, 180, 0.9); /* Fundo rosa com transparência */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que fique acima de tudo */
+    animation: fadeOut 3s ease-in-out forwards; /* Animação de desaparecer */
+}
 
+#welcomeAnimation h1 {
+    font-family: "Ruthie", serif;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    animation: slideIn 1s ease-in-out; /* Animação de entrada */
+    margin-bottom: 20px; /* Espaço entre o texto e a imagem */
+}
 
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaço entre a imagem e o nome */
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white; /* Borda branca ao redor da imagem */
+    object-fit: cover; /* Garante que a imagem não fique distorcida */
+}
+
+.profile-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Animação de entrada */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animação de desaparecer */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden; /* Esconde o elemento após a animação */
+    }
+}
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -117,6 +187,24 @@ h3{
     background-color: var(--primary-color);
     color: white;
 }
+/* Estilo do botão "Ver mais" */
+.ver-mais-button {
+   display: flex;
+   justify-content: end ;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    
+    color:  #ff4081;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+
+
 
 .swiper {
     width: 100%;

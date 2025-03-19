@@ -1,3 +1,5 @@
+Todo dia é dia de ter uma unha perfeita 😍
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -20,6 +22,14 @@
 
 <body>
     <main>
+        <!-- Animação de boas-vindas -->
+        <div id="welcomeAnimation">
+            <h1>Bem-vindo ao mundo das unhas! 💅</h1>
+            <div class="profile-container">
+                <img src="img/perfil.jpg" alt="Karol - Nail Designer" class="profile-image">
+                <p class="profile-name">Karol</p>
+            </div>
+        </div>
         <section id="home" class="hero">
             <h1>Suas unhas impecáveis, do jeito que você sempre sonhou!</h1>
             <p>Transforme suas mãos com nossos serviços profissionais de nail design.</p>
@@ -35,25 +45,29 @@
             <div class="service-grid">
                 <div class="service-item">
                     <h3>Alongamento com Tips e Gel</h3>
-                    <p>Perfeito para quem deseja unhas mais longas e resistentes com um visual natural e sofisticado.</p>
+                    <p>Perfeito para quem deseja unhas mais longas e resistentes com um visual natural e sofisticado.
+                    </p>
                 </div>
                 <div class="service-item">
                     <h3>Banho de Gel</h3>
-                    <p>Fortaleça suas unhas naturais, evite descamação e garanta um brilho incrível sem precisar de alongamento.</p>
+                    <p>Fortaleça suas unhas naturais, evite descamação e garanta um brilho incrível sem precisar de
+                        alongamento.</p>
                 </div>
                 <div class="service-item">
                     <h3>Esmaltação em Gel</h3>
-                    <p>Cores vibrantes e brilho impecável por semanas! Adeus esmalte descascado, olá unhas perfeitas!</p>
+                    <p>Cores vibrantes e brilho impecável por semanas! Adeus esmalte descascado, olá unhas perfeitas!
+                    </p>
                 </div>
             </div>
         </section>
-
         <section id="portfolio">
+            <a href="portifolio.html" class="ver-mais-button">Ver mais</a>
+
             <h2>Portfólio</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="img/img1.jpg" alt="Nail Design 1"></div>
-                    <div class="swiper-slide"><img src="img/img2.jpg" alt="Nail Design 2"></div>
+                    <div class="swiper-slide"><img src="img/unha.jpg" alt="Nail Design 2"></div>
                     <div class="swiper-slide"><img src="img/img3.jpg" alt="Nail Design 3"></div>
                     <div class="swiper-slide"><img src="img/img4.jpeg" alt="Nail Design 4"></div>
                     <div class="swiper-slide"><img src="img/img5.jpeg" alt="Nail Design 5"></div>
@@ -88,4 +102,130 @@
             <a href="#" class="whatsapp-button open-modal">Agendar pelo WhatsApp</a>
         </section>
 
-        <!-- Modal
+        <!-- Modal de Agendamento -->
+        <div id="whatsappModal" class="modal">
+            <div class="modal-content">
+                <img src="img/perfil.jpg" alt="Karol - Nail Designer">
+                <h3>Agende com a Karol 💅</h3>
+                <p>Karol é especialista em Nail Design, com técnicas inovadoras e atendimento personalizado. Reserve seu
+                    horário para ter unhas incríveis!</p>
+                <div class="modal-buttons">
+                    <button id="goToWhatsApp">Ir para o WhatsApp</button>
+                    <button id="cancelModal">Ver mais</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="" class="whatsapp-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+    </a>
+
+    <footer>
+        <p>&copy; 2025 Nail Designer Portfolio. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Remove a animação de boas-vindas após o término
+        document.addEventListener("DOMContentLoaded", function () {
+            const welcomeAnimation = document.getElementById("welcomeAnimation");
+
+            // Remove o elemento após 3 segundos (tempo da animação)
+            setTimeout(() => {
+                welcomeAnimation.remove();
+            }, 3000); // 3000ms = 3 segundos
+        });
+        // Inicialização do Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 20,
+            slidesPerView: 1,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+
+        // Modal de Imagem
+        document.addEventListener("DOMContentLoaded", function () {
+            let modal = document.createElement("div");
+            modal.className = "image-modal";
+            modal.innerHTML = `
+                <span class="close-btn">&times;</span>
+                <img src="" alt="Imagem expandida">
+            `;
+            document.body.appendChild(modal);
+
+            let modalImg = modal.querySelector("img");
+            let closeButton = modal.querySelector(".close-btn");
+
+            document.querySelectorAll(".swiper-slide img").forEach(img => {
+                img.addEventListener("click", function () {
+                    modal.style.display = "flex";
+                    modalImg.src = this.src;
+                });
+            });
+
+            closeButton.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+
+        // Modal de Agendamento
+        document.addEventListener("DOMContentLoaded", function () {
+            const whatsappButton = document.querySelector(".whatsapp-float");
+            const openModalButtons = document.querySelectorAll(".open-modal");
+            const whatsappModal = document.getElementById("whatsappModal");
+            const cancelModal = document.getElementById("cancelModal");
+            const goToWhatsApp = document.getElementById("goToWhatsApp");
+
+            function showModal() {
+                whatsappModal.style.display = "flex";
+            }
+
+            function hideModal() {
+                whatsappModal.style.display = "none";
+            }
+
+            if (whatsappButton) {
+                whatsappButton.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showModal();
+                });
+            }
+
+            openModalButtons.forEach(button => {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showModal();
+                });
+            });
+
+            cancelModal.addEventListener("click", hideModal);
+
+            goToWhatsApp.addEventListener("click", function () {
+                window.location.href = "https://wa.me/5511997360327?text=Olá,%20gostaria%20de%20agendar%20um%20horário.%20Como%20faço%20para%20participar%20da%20promoção?";
+            });
+
+            whatsappModal.addEventListener("click", function (event) {
+                if (event.target === whatsappModal) {
+                    hideModal();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
